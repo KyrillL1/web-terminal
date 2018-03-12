@@ -72,11 +72,9 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer, config) {
       input.autofocus = false;
       input.readOnly = true;
       output.appendChild(line);
+      var cmd = this.value.trim().split(' ')[0].toLowerCase();
 
       if (!(cmd in config.commands) && cmd != '') cmd = "default";
-      else {
-        var cmd = this.value.trim().split(' ')[0].toLowerCase();
-      }
 
       var argString = this.value.replace(cmd, "").trim();
       output_(config.commands[cmd](argString));
