@@ -4,7 +4,7 @@ Everything happens on the client-side, so is not secure.
 It's really basic, but easy to customize.
 
 ## Test it out
-Have a look at it on [example](https://KyrillL1.github.io/web-terminal-example).
+Have a look at the [example](https://KyrillL1.github.io/web-terminal-example).
 
 ## Run
 Download the files or clone the repo. Test it by simply running a local server e.g.
