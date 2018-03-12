@@ -4,7 +4,7 @@ Everything happens on the client-side, so is not secure.
 It's really basic, but easy to customize.
 
 ## Test it out
-Have a look at an [example](https://KyrillL1.github.io/web-terminal-example).
+Have a look at it on [example](https://KyrillL1.github.io/web-terminal-example).
 
 ## Run
 Download the files or clone the repo. Test it by simply running a local server e.g.
@@ -13,7 +13,7 @@ python -m SimpleHTTPServer # from within the folder
 ```
 and then navigate to localhost:8000.
 
-To use it in your website, include the below in your header:
+To use it in your website, include the below in your header (Make sure to replace the $VARIABLES):
 
 ```html
 <!-- CSS (load bootstrap from a CDN) -->
@@ -26,9 +26,9 @@ To use it in your website, include the below in your header:
 <!-- custom fonts -->
 <link href="https://fonts.googleapis.com/css?family=Mina" rel="stylesheet">
 <!-- locally, of this repo -->
-<link href="/PATH/TO/index-style.css" rel="stylesheet" type="text/css" />
+<link href="/$PATH_TO/index-style.css" rel="stylesheet" type="text/css" />
 ```
-Then, add this to your `<body>`.
+Then, add this to your `<body>` (Again make sure to replace the $VARIABLES).
 
 ```html
 <div id="container">
@@ -39,13 +39,13 @@ Then, add this to your `<body>`.
   </div>
 </div>
 <!-- Includes the custom object "Terminal" to set it up later -->
-<script src="/terminal.js"></script> <!-- locally, of this repo -->
+<script src="/PATH_TO/terminal.js"></script> <!-- locally, of this repo -->
 <!-- Actual initialization of the terminal -->
 <script>
 $(function() {
   // configuration data
   var config = {
-    prompt: "[user@JAMES]$ ", // user will be replaced by username after login
+    prompt: "[user@web-terminal]$ ", // user will be replaced by guest
     commands: {
       // specify what should happen on a cmd and return string to write to terminal
       help: (argString) => {
@@ -65,7 +65,7 @@ $(function() {
       logout: (argString) => {
         term.logout();
       },
-      // required, otherwise TypeErr is thrown
+      // required as of the current setup, otherwise TypeErr is thrown
       default: () => {
         return("Not a command. Enter 'help' for more information.")
       }
@@ -74,11 +74,14 @@ $(function() {
   // Initialize a new terminal object
   // new Terminal(cmdLineContainer, outputContainer, config)
   var term = new Terminal('#input-line .cmdline', '#container output', config);
-  // terminal will work without init. iinit adds page layout onLoad
   term.init();
   });
 </script>
 ```
 ## Customize
 
-You can customize the terminal by adding commands to the config file or adding custom attributes and custom methods to the terminal in terminal.js. You can refer back to the custom methods/ attributes using `term.<custom-attribute>` or `term.<custom-method>()`.
+The main purpose of this repository is an easy customization.
+Just add custom attributes and custom methods in `/terminal.js` and then refer back to them within your script using `term.<custom-attribute>` or `term.<custom-method>`.
+
+You can call the attributes and methods within your config's methods e.g..
+It's currently setup to let you return a HTML/ text string which will be appended to the <output>.
