@@ -82,5 +82,3 @@ $(function() {
 
 The main purpose of this repository is easy customization.
 Just add custom attributes or custom methods in `/terminal.js` and then refer back to them within your script using `term.<custom-attribute>` or `term.<custom-method>`.
-
-You can call the attributes and methods within your config's methods.
