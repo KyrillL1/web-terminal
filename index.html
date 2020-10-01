@@ -23,8 +23,10 @@
           <div><input class="cmdline" autofocus /></div>
         </div>
       </div>
+      
     <!-- Includes the custom object "Terminal" to set it up later -->
     <script src="/terminal.js"></script>
+      
     <!-- Actual initialization of the terminal -->
     <script>
     $(function() {
@@ -50,12 +52,14 @@
           logout: (argString) => {
             term.logout();
           },
+          
           // required, otherwise TypeErr is thrown
           default: (argString) => {
             return("Not a command. Enter 'help' for more information.")
           }
         }
       };
+      
       // Initialize a new terminal object
       // new Terminal(cmdLineContainer, outputContainer, config)
       var term = new Terminal('#input-line .cmdline', '#container output', config);

@@ -1,5 +1,5 @@
-# Overview
-web-terminal is a fully customizable and easy to understand HTML template including HTML, Javascript and CSS to make your website look like a terminal.
+# Overview of WEB-TERMINAL
+Web-Terminal is a fully customizable and easy to understand HTML template including HTML, Javascript and CSS to make your website look like a terminal.
 Everything happens on the client-side, so is not secure.
 It's really basic, but easy to customize.
 
